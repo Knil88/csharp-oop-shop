@@ -8,6 +8,12 @@ namespace csharp_oop_shop
 {
     internal class Prodotto
     {
+        public int codice;
+        public string nome;
+        public string descrizione;
+        public decimal prezzo;
+        public int iva;
+
 
     }
 }
