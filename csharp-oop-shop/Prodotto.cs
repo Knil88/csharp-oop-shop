@@ -1,50 +1,103 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace csharp_oop_shop
 {
-    public class Prodotto
+    internal class Product
     {
+        //Attributi
         private int codice;
         public string nome;
         public string descrizione;
-        public decimal prezzo;
-        public int iva;
-        public decimal prezzoIva;
-        Random rnd = new Random();
-        public int getCodice()
-        {
-          
+        public float prezzo;
+        public float iva;
 
-            return codice;
+        //Costruttore
+        public Product()
+        {
+            codice = GenerateRandomNumber();
+            nome = GetName();
+            prezzo = GetPrice();
+            iva = 0.22f;
+
         }
 
-        public int getPrezzoIva()
+
+
+
+
+        //METHODS
+
+        //Random number generator
+        private int GenerateRandomNumber()
         {
-            
+            Random rnd = new Random();
+
+            //Console.WriteLine(rnd.Next());
+            return rnd.Next(10000000, 99999999);
+        }
+
+        //Price
+        private float PriceMoreIva(float prezzo)
+        {
+            float prezzoIva = (prezzo * this.iva) + prezzo;
 
             return prezzoIva;
         }
 
-        public Prodotto(string nome, string descrizione, decimal prezzo , int iva)
+        //Name
+        public string NameMoreCode(string name, int code)
         {
-            
-            this.nome = nome;
-            this.descrizione = descrizione;
-            this.prezzo= prezzo;
-            this.iva = iva;
-            Random rnd = new Random();
-            codice = rnd.Next(1, 11);
-            prezzoIva= prezzo / (1 + (iva / 100));
+            string codiceStringa = Convert.ToString(code);
 
-
+            return codiceStringa + name;
         }
 
-       
+
+
+
+        //GET & SET
+
+
+        //(Get) Product GetCode 
+        public int GetCode()
+        {
+            return codice;
+        }
+
+        //(Get/Set) Price
+        public float GetPrice()
+        {
+            return prezzo;
+        }
+        public void SetPrice(float prezzo)
+        {
+            this.prezzo = prezzo;
+        }
+
+        //(Get/Set) IVA Price
+        public float GetIvaPrice()
+        {
+            return PriceMoreIva(prezzo);
+        }
+        //public void SetIvaPrice(float prezzoIva)
+        //{
+        //    this.prezzoIva = prezzoIva;
+        //}
+
+
+        //(Get/Set) Name
+        public string GetName()
+        {
+            return nome;
+        }
+        public void SetName(string nome)
+        {
+            this.nome = nome;
+        }
 
     }
 }

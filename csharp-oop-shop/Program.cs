@@ -1,17 +1,39 @@
 ﻿namespace csharp_oop_shop
 {
-    public class Program
+    internal class Program
     {
-       
         static void Main(string[] args)
         {
-            
-            Prodotto  mioProdotto = new Prodotto("portafoglio","Bel portafoglio", 9.99m, 22);
 
-            Console.WriteLine($"Il codice prodotto è: {mioProdotto.getCodice()}");
-            Console.WriteLine($"Il prezzo base  è: {mioProdotto.prezzo} ");
-            //Console.WriteLine($"Il prezzo senza iva  è: {mioProdotto.getPrezzoIva}");
+            Product product1 = new Product();
+
+
+            //Genera codice casuale da 8 cifre
+            Console.WriteLine($"Codice: {product1.GetCode()}");
+
+            //Print Price
+            Console.WriteLine("Set Price: ");
+            product1.SetPrice(Convert.ToInt32(Console.ReadLine()));
+            Console.WriteLine($"Prezzo: {product1.GetPrice()}$");
+
+            //Print Iva Price
+            Console.WriteLine($"Prezzo IVA: {product1.GetIvaPrice()}$");
+
+
+            //Set Name
+            Console.WriteLine("Set Name: ");
+            product1.SetName(Console.ReadLine());
+
+            //product1.NameMoreCode(Console.ReadLine());
+            Console.WriteLine($"Nome: {product1.NameMoreCode(product1.nome, product1.GetCode())}");
+
+
+            //TEST
+            Console.WriteLine(product1.nome);
+            Console.WriteLine(product1.prezzo);
 
         }
+
+
     }
 }
