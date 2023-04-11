@@ -8,14 +8,14 @@ namespace csharp_oop_shop
 {
     internal class Product
     {
-        //Attributi
+       
         private int codice;
         public string nome;
         public string descrizione;
         public float prezzo;
         public float iva;
 
-        //Costruttore
+        
         public Product()
         {
             codice = GenerateRandomNumber();
@@ -29,18 +29,16 @@ namespace csharp_oop_shop
 
 
 
-        //METHODS
-
-        //Random number generator
+      
         private int GenerateRandomNumber()
         {
             Random rnd = new Random();
 
-            //Console.WriteLine(rnd.Next());
+          
             return rnd.Next(10000000, 99999999);
         }
 
-        //Price
+      
         private float PriceMoreIva(float prezzo)
         {
             float prezzoIva = (prezzo * this.iva) + prezzo;
@@ -48,7 +46,7 @@ namespace csharp_oop_shop
             return prezzoIva;
         }
 
-        //Name
+      
         public string NameMoreCode(string name, int code)
         {
             string codiceStringa = Convert.ToString(code);
@@ -59,16 +57,12 @@ namespace csharp_oop_shop
 
 
 
-        //GET & SET
-
-
-        //(Get) Product GetCode 
         public int GetCode()
         {
             return codice;
         }
 
-        //(Get/Set) Price
+       
         public float GetPrice()
         {
             return prezzo;
@@ -78,7 +72,7 @@ namespace csharp_oop_shop
             this.prezzo = prezzo;
         }
 
-        //(Get/Set) IVA Price
+     
         public float GetIvaPrice()
         {
             return PriceMoreIva(prezzo);
@@ -89,7 +83,7 @@ namespace csharp_oop_shop
         //}
 
 
-        //(Get/Set) Name
+      
         public string GetName()
         {
             return nome;
